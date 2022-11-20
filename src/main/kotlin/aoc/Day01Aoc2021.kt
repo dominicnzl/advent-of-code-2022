@@ -2,7 +2,10 @@ package aoc
 
 import java.io.File
 
-internal object Day01 : ChallengeDay {
+/**
+* @see <a href="https://adventofcode.com/2021/day/1">Day 1: Sonar Sweep</a>
+*/
+internal object Day01Aoc2021 : ChallengeDay {
 
     private fun part1(filePath: String) = File(filePath).readLines().map(String::toInt).toDepthIncreaseCount()
 

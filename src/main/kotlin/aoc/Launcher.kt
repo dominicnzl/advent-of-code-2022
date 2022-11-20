@@ -2,12 +2,12 @@ package aoc
 
 import utils.*
 
-fun main(args: Array<String>) {
+fun main(vararg args: String) {
     ChallengeDay.inputDir = args.firstOrNull() ?: "input"
     println(readTextFromResource("/title.txt").withColor(RED))
     val results = sequenceOf(
-        Day01,
-        Day01InJava(),
+        Day01Aoc2021,
+        Day01Aoc2021InJava(),
     ).flatMap(ChallengeDay::runParts)
         .onEach(::println)
         .toList()
@@ -25,6 +25,7 @@ data class AocResult(val name: String, val result: Result<String>, val solveTime
 
     private fun Int.toColor(colors: List<String>) = if (result.isSuccess) colors[this % colors.size] else RED
 
-    override fun toString(): String = "%-40s Result: %-50s Solve time: %-7s".withColor(color)
+    override fun toString(): String = "%-40s Result: %-50s Solve time: %-7s"
         .format(name, result.getOrElse { "Failure: ${it.message}" }, solveTimeNanos.nanoTimeToFormattedDuration())
+        .withColor(color)
 }

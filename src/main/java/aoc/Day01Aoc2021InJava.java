@@ -3,7 +3,10 @@ package aoc;
 import org.jetbrains.annotations.NotNull;
 import utils.FileUtils;
 
-public class Day01InJava implements ChallengeDay {
+/**
+ * @see <a href="https://adventofcode.com/2021/day/1">Day 1: Sonar Sweep</a>
+ */
+public class Day01Aoc2021InJava implements ChallengeDay {
 
     public int part1(String fileName) {
         final var integers = FileUtils.useLines(fileName, s -> s.mapToInt(Integer::parseInt).toArray());
