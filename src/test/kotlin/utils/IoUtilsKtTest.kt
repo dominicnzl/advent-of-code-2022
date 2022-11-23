@@ -7,27 +7,31 @@ import kotlin.test.assertEquals
 internal class IoUtilsKtTest {
 
     @Test
-    fun testReadLines() {
+    fun `test read lines`() {
         val actual = File("input/iotest.txt").readLines().map(String::trim)
         val expected = listOf("hallo", "dit", "is", "een", "test")
         assertEquals(expected, actual)
     }
 
     @Test
-    fun testUseLines() {
-        val actual = File("input/iotest.txt").readLines().map { it.trim().length }
+    fun `test use lines`() {
+        val actual = File("input/iotest.txt").useLines {
+            it.map(String::trim)
+            .map(String::length)
+            .toList()
+        }
         assertEquals(listOf(5, 3, 2, 3, 4), actual)
     }
 
     @Test
-    fun testReadFileTextUsingGetResource() {
-        val actual = this::class.java.getResource("/testFiles/test.txt")?.readText() ?: ""
+    fun `test read text from resource file`() {
+        val actual = this::class.java.getResource("/test.txt")?.readText() ?: ""
         assertEquals("hallo dit is een test", actual.trim())
     }
 
     @Test
-    fun testReadFileLinesUsingGetResource() {
-        val list = this::class.java.getResource("/testFiles/test.txt")
+    fun `test read lines from resource`() {
+        val list = this::class.java.getResource("/test.txt")
             ?.let { File(it.file).readLines() }
             ?: emptyList()
 

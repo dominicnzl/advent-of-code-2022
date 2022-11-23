@@ -5,12 +5,14 @@ import utils.*
 fun main(vararg args: String) {
     ChallengeDay.inputDir = args.firstOrNull() ?: "input"
     println(readTextFromResource("/title.txt").withColor(RED))
+
     val results = sequenceOf(
         Day01Aoc2021,
         Day01Aoc2021InJava(),
     ).flatMap(ChallengeDay::runParts)
         .onEach(::println)
         .toList()
+
     println("%nTotal solve time: %2.3f seconds%n".format(results.sumOf(AocResult::solveTimeNanos) / 1e9))
     println(readTextFromResource("/banner.txt").withColor(GREEN))
 }

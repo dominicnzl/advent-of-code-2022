@@ -6,10 +6,10 @@ import utils.assertEqualTo
 internal class Day01Aoc2021Test {
 
     @Test
-    fun testSumDepthIncreases() = Day01Aoc2021.part1().also(::println).assertEqualTo(1_722)
+    fun `answer part 1 equals expected by aoc`() = Day01Aoc2021.part1().also(::println).assertEqualTo(1_722)
 
     @Test
-    fun testSumDepthRangeIncreases() = Day01Aoc2021.part2().also(::println).assertEqualTo(1_748)
+    fun `answer part 2 equals expected by aoc`() = Day01Aoc2021.part2().also(::println).assertEqualTo(1_748)
 
     @Test
     fun `part 2 v2 gives same answer`() {
