@@ -1,6 +1,5 @@
 package aoc;
 
-import org.jetbrains.annotations.NotNull;
 import utils.FileUtils;
 
 import java.util.Comparator;
@@ -10,12 +9,10 @@ import java.util.function.BiFunction;
 
 public class Day01 {
 
-    @NotNull
     public Integer part1(String inputPath) {
         return getMap(inputPath).values().stream().max(Integer::compareTo).orElseThrow();
     }
 
-    @NotNull
     public Integer part2(String inputPath) {
         return getMap(inputPath).values()
                 .stream()
