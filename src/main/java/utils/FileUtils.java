@@ -18,4 +18,13 @@ public final class FileUtils {
             throw new IllegalStateException(e);
         }
     }
+
+    public static Stream<String> getLines(String filePath) {
+        try {
+            return Files.lines(Path.of(filePath));
+        } catch (IOException e) {
+            System.out.println("could not read between the lines");
+        }
+        throw new IllegalArgumentException("could not read between the lines");
+    }
 }
